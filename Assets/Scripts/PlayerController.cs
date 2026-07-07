@@ -5,6 +5,10 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed = 5f;
 
+    public GameObject bulletPrefab;
+    // gan firePoint = Right ? Left 
+    private Transform firePoint;
+    
     [Header("References")]
     public Animator animator;
     public SpriteRenderer spriteRenderer;
@@ -58,6 +62,20 @@ public class PlayerController : MonoBehaviour
         {
             isShooting = true;
             animator.SetInteger("status", 2); // Shoot
+            // 1. Instantiate Bullet Prefab tai vi tri firepoint 
+            Bullet bullet = bulletPrefab.gameObject.GetComponent<Bullet>();
+           if (horizontal > 0)
+           {
+               bullet.setDirection(1);
+               firePoint = gameObject.transform.GetChild(1);
+           }
+            else
+            {
+                bullet.setDirection(-1);
+                firePoint = gameObject.transform.GetChild(2);
+            }
+            // xuat hien vien dan o vi tri firepoint 
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         }
         // Nhả Space
         if (Input.GetKeyUp(KeyCode.Space))
