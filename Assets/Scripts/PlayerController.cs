@@ -62,12 +62,15 @@ public class PlayerController : MonoBehaviour
         {
             isShooting = true;
             animator.SetInteger("status", 2); // Shoot
-            // 1. Instantiate Bullet Prefab tai vi tri firepoint 
-            Bullet bullet = bulletPrefab.gameObject.GetComponent<Bullet>();
-            firePoint = gameObject.transform.GetChild(horizontal > 0 ? 1 : 2);
-            // xuat hien vien dan o vi tri firepoint 
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            if (horizontal > 0) bullet.setDirection(1);
+            // 1. Xác định firePoint dựa vào hướng nhân vật đang quay mặt (flipX)
+            bool isFacingRight = spriteRenderer.flipX;
+            firePoint = gameObject.transform.GetChild(isFacingRight ? 1 : 2);
+            
+            // 2. Xuất hiện viên đạn ở vị trí firepoint và lấy component Bullet của VIÊN ĐẠN MỚI TẠO
+            GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Bullet bullet = bulletObj.GetComponent<Bullet>();
+            // 3. Cài đặt hướng bay
+            if (isFacingRight) bullet.setDirection(1);
             else bullet.setDirection(-1);
         }
         // Nhả Space
