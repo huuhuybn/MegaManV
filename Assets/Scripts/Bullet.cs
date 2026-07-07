@@ -7,10 +7,15 @@ public class Bullet : MonoBehaviour
     public float lifetime = 3f;
     private int direction = 1; // 1 : right , -1 : left 
     SpriteRenderer spriteRenderer;
+    
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     { 
-       spriteRenderer = GetComponent<SpriteRenderer>();
        Destroy(gameObject, lifetime); 
     }
     public void setDirection(int direction)
@@ -19,7 +24,6 @@ public class Bullet : MonoBehaviour
         {
          spriteRenderer.flipX = true;   
         }else spriteRenderer.flipX = false;
-        
         this.direction = direction;
     }
     // Update is called once per frame

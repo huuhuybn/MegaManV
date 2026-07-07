@@ -35,8 +35,7 @@ public class EnemyController : MonoBehaviour
         transform.Translate(
             Vector2.right * direction * moveSpeed * Time.deltaTime
         );
-
-
+        
         // Flip theo hướng đi
         if (direction > 0)
         {
