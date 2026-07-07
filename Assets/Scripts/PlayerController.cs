@@ -64,18 +64,11 @@ public class PlayerController : MonoBehaviour
             animator.SetInteger("status", 2); // Shoot
             // 1. Instantiate Bullet Prefab tai vi tri firepoint 
             Bullet bullet = bulletPrefab.gameObject.GetComponent<Bullet>();
-           if (horizontal > 0)
-           {
-               bullet.setDirection(1);
-               firePoint = gameObject.transform.GetChild(1);
-           }
-            else
-            {
-                bullet.setDirection(-1);
-                firePoint = gameObject.transform.GetChild(2);
-            }
+            firePoint = gameObject.transform.GetChild(horizontal > 0 ? 1 : 2);
             // xuat hien vien dan o vi tri firepoint 
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            if (horizontal > 0) bullet.setDirection(1);
+            else bullet.setDirection(-1);
         }
         // Nhả Space
         if (Input.GetKeyUp(KeyCode.Space))

@@ -9,8 +9,8 @@ public class Bullet : MonoBehaviour
     SpriteRenderer spriteRenderer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+    { 
+       spriteRenderer = GetComponent<SpriteRenderer>();
        Destroy(gameObject, lifetime); 
     }
     public void setDirection(int direction)
