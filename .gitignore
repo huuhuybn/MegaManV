@@ -66,3 +66,6 @@ crashlytics-build.properties
 
 # IDEs
 .idea/
+
+# Documentation (local only)
+Docs/
