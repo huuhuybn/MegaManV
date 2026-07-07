@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -38,6 +39,9 @@ public class Bullet : MonoBehaviour
     {
         if (collision.tag.Equals("Enemy"))
         {
+            GameManager.Instance.AddScore(10);
+            Destroy(gameObject); // Destroy Bullet
+            Destroy(collision.gameObject); // destroy Enemy
           // tru mau cua enemy   
         }else if (collision.tag.Equals("Ground"))
         {

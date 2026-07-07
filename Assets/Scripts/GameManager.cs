@@ -18,14 +18,13 @@ namespace DefaultNamespace
             }
         }
         public void AddScore(int score){
+            if(isGameOver) return;
             this.score += score;
         }
-
         public void GameOver()
         {
             isGameOver = true;
             // Instantiate GameOver Prefab, dung game 
         }
-        
     }
 }
