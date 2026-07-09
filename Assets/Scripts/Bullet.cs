@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     { 
-       Destroy(gameObject, lifetime); 
+       Destroy(gameObject, lifetime);  // 3s 
     }
     public void setDirection(int direction)
     {
@@ -41,6 +41,7 @@ public class Bullet : MonoBehaviour
         {
             GameManager.Instance.AddScore(10);
             Destroy(gameObject); // Destroy Bullet
+            
             Destroy(collision.gameObject); // destroy Enemy
           // tru mau cua enemy   
         }else if (collision.tag.Equals("Ground"))
