@@ -14,8 +14,14 @@ namespace DefaultNamespace
         private void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = healthSprites[0]; // gan anh full hp 
         }
-        
-        
+
+        private void UpdateHP(int hp)
+        {
+            // cap nhat giao dien cho hp tai day 
+        }
+
+
     }
 }
