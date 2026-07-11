@@ -45,16 +45,14 @@ public class EnemyController : MonoBehaviour
         {
             spriteRenderer.flipX = false;  // Nhìn sang trái
         }
-
-
+        
         // Đổi hướng khi đi hết khoảng cách
 
         if (transform.position.x >= startPosition.x + moveDistance)
         {
             direction = -1;
         }
-
-
+        
         if (transform.position.x <= startPosition.x - moveDistance)
         {
             direction = 1;
