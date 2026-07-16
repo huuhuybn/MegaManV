@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab0c2e3fbaa2495caa04dfdc7bb7d87, type: 3}
+  m_Name: ShortGunItem
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemName: "S\xFAng Ng\u1EAFn"
+  itemDescription: "S\xFAng ng\u1EAFn s\u1EE9c c\xF4ng ph\xE1 b\xECnh th\u01B0\u1EDDng
+    trong game "
+  itemSprite: {fileID: 199151232217589549, guid: 834cf065ff013435f8e27e30e954a1ec, type: 3}
+  price: 100
+  damage: 12

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a72c689d128042eeb4ed933cdd096af, type: 3}
+  m_Name: PinkPlayer
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterData
+  playerName: PinkMan
+  description: PinkMan - Weaker but Faster , More Damage
+  player: {fileID: -1820946517126320954, guid: bef4d5e1a792149a7a6235f234e3fbb8, type: 3}
+  animatorController: {fileID: 9100000, guid: 3998d99113e4e4b959c11c83f469829a, type: 2}
+  hp: 80
+  maxHp: 180
+  damage: 18
+  speed: 8
