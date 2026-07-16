@@ -1,7 +1,9 @@
+using DefaultNamespace;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    
     [Header("Movement")]
     public float moveSpeed = 5f;
 
@@ -16,10 +18,16 @@ public class PlayerController : MonoBehaviour
     private float horizontal;
     private bool isShooting;
     
+    public CharacterData[] characterData;
+    
     private void Start()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = characterData[0].player;
+        animator.runtimeAnimatorController = characterData[0].animatorController;
+        // truy cap thong tin 
+        GameManager.Instance.health = characterData[0].hp;
     }
     void Update()
     {
