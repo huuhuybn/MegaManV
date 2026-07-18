@@ -22859,11 +22859,23 @@ PrefabInstance:
     - target: {fileID: 266088941226203568, guid: fe193e137e42449329f1c14c0797024a, type: 3}
       propertyPath: characterData
       value: 
-      objectReference: {fileID: 11400000, guid: 691f72eb8af964d6999462da51c46065, type: 2}
+      objectReference: {fileID: 11400000, guid: cb508f52426e04c219224cd14774b62b, type: 2}
     - target: {fileID: 266088941226203568, guid: fe193e137e42449329f1c14c0797024a, type: 3}
       propertyPath: playerscriptable
       value: 
       objectReference: {fileID: 11400000, guid: 0f367b938f3b24ce6a2da4b484291bcf, type: 2}
+    - target: {fileID: 266088941226203568, guid: fe193e137e42449329f1c14c0797024a, type: 3}
+      propertyPath: characterData.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 266088941226203568, guid: fe193e137e42449329f1c14c0797024a, type: 3}
+      propertyPath: 'characterData.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 691f72eb8af964d6999462da51c46065, type: 2}
+    - target: {fileID: 266088941226203568, guid: fe193e137e42449329f1c14c0797024a, type: 3}
+      propertyPath: 'characterData.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: cb508f52426e04c219224cd14774b62b, type: 2}
     - target: {fileID: 1055962350758365299, guid: fe193e137e42449329f1c14c0797024a, type: 3}
       propertyPath: m_FlipX
       value: 0

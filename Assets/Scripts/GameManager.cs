@@ -1,9 +1,11 @@
 using System;
+using System.IO;
 using UnityEngine;
 namespace DefaultNamespace
 {
     public class GameManager:MonoBehaviour
     {
+        private string[] level = new[] { "level01", "level02", "level03"};
         public static GameManager Instance { get; private set; }
         public int score = 0;
         public int health = 17;
@@ -23,6 +25,31 @@ namespace DefaultNamespace
                 Destroy(gameObject);
             }
         }
+
+        public void SaveCheckPoint(string sceneName,
+            int checkPoint, int health, int score)
+        {
+            SaveData saveData = new SaveData();
+            saveData.checkPoint = checkPoint;
+            saveData.health = health;
+            saveData.score = score;
+            saveData.checkPoint = checkPoint;
+            string json = JsonUtility.ToJson(saveData);
+            string path =  Application.persistentDataPath + "/SaveData.json";
+            File.WriteAllText(path, json);
+            //File.WriteAllText(path, json);
+            //File.WriteAllText(path, json);
+            Debug.Log("Saved checkpoint.!!!!");
+        }
+
+        public void LoadCheckPoint()
+        {
+            string path =  Application.persistentDataPath + "/SaveData.json";
+            string json = File.ReadAllText(path);
+            SaveData saveData = JsonUtility.FromJson<SaveData>(json);
+            
+        }
+
         public void AddScore(int score){
             if(isGameOver) return;
             this.score += score;
