@@ -36,18 +36,17 @@ namespace DefaultNamespace
             saveData.checkPoint = checkPoint;
             string json = JsonUtility.ToJson(saveData);
             string path =  Application.persistentDataPath + "/SaveData.json";
+            Debug.Log(path);
             File.WriteAllText(path, json);
             //File.WriteAllText(path, json);
             //File.WriteAllText(path, json);
             Debug.Log("Saved checkpoint.!!!!");
         }
 
-        public void LoadCheckPoint()
+        public bool IsCheckPointExist()
         {
             string path =  Application.persistentDataPath + "/SaveData.json";
-            string json = File.ReadAllText(path);
-            SaveData saveData = JsonUtility.FromJson<SaveData>(json);
-            
+            return File.Exists(path);
         }
 
         public void AddScore(int score){
