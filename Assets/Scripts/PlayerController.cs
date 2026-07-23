@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         spriteRenderer.sprite = characterData[0].player;
         animator.runtimeAnimatorController = characterData[0].animatorController;
         // truy cap thong tin 
-        GameManager.Instance.health = characterData[0].hp;
+        GameManager.Instance.MaxHP = characterData[0].hp;
     }
     void Update()
     {
@@ -71,8 +71,16 @@ public class PlayerController : MonoBehaviour
             isShooting = true;
             animator.SetInteger("status", 2); // Shoot
         }
-        // Nhả Space
-        if (Input.GetKeyUp(KeyCode.Space))
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            isShooting = true;
+            animator.SetInteger("status", 2);
+            FireLaser();
+        }
+        
+        // Nhả Space or L 
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.L))
         {
             isShooting = false;
             if (horizontal != 0)
@@ -95,5 +103,31 @@ public class PlayerController : MonoBehaviour
         if (isFacingRight) 
             bullet.setDirection(1);
         else bullet.setDirection(-1);
+    }
+
+    public void FireLaser()
+    {
+        // 1 lay ra gameobject con chua LineRender 
+        bool isFacingRight = spriteRenderer.flipX;
+        firePoint = gameObject.transform.GetChild(isFacingRight ? 2 : 1);
+        float distance = isFacingRight ? 5 : -5;
+        Vector2 targetPoint = new Vector2(firePoint.position.x + distance, firePoint.position.y);
+        LineRenderer laserRend = gameObject.transform.GetChild(4).gameObject.
+            GetComponent<LineRenderer>();
+        // thiet lap 2 point ( size = 2 ) , firepoint va targetpoint 
+        laserRend.positionCount = 2; 
+        laserRend.SetPosition(0, firePoint.position);
+        laserRend.SetPosition(1, targetPoint);
+        // tich hop kiem tra va cham 
+        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, targetPoint,5);
+        if (hit.collider != null)
+        {
+            Debug.Log(hit.collider.name);
+            if (hit.collider.tag.Equals("Enemy"))
+            {
+                // 
+            }
+        }
+        // Raycast : kiem tra va cham tren 1 duong thang 
     }
 }

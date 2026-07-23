@@ -8,7 +8,7 @@ namespace DefaultNamespace
         private string[] level = new[] { "level01", "level02", "level03"};
         public static GameManager Instance { get; private set; }
         public int score = 0;
-        public int health = 17;
+        public int MaxHP = 17;
         // khai bao Action khi hp thay doi 
         // khai bao Action khi diem thay doi  
         public Action<int> OnScoreChange;
