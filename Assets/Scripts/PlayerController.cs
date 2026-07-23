@@ -118,8 +118,9 @@ public class PlayerController : MonoBehaviour
         laserRend.positionCount = 2; 
         laserRend.SetPosition(0, firePoint.position);
         laserRend.SetPosition(1, targetPoint);
+        Vector2 direction = isFacingRight ? Vector2.right : Vector2.left;
         // tich hop kiem tra va cham 
-        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, targetPoint,5);
+        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, direction,5);
         if (hit.collider != null)
         {
             Debug.Log(hit.collider.name);
